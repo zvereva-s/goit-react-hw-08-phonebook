@@ -29,4 +29,17 @@ export async function logout() {
     return result;
 }
 
+export async function getCurrent(token) {
+    try {
+        setToken(token);
+        const { data: result } = await instance.get('/users/current');
+        return result;
+    }
+    catch (error) {
+        setToken('');
+        throw error;
+    }
+    
+}
+
 export default instance;

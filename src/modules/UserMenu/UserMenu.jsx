@@ -7,7 +7,8 @@ import styles from './userMenu.module.css';
 
 function UserMenu() {
     const authState = useSelector(auth);
-    const { user: { email }} = authState;
+    const { user } = authState;
+    
    
     const dispatch = useDispatch();
 
@@ -18,7 +19,7 @@ function UserMenu() {
     const classEmail = `${styles.item} ${styles.email}`;
     return (
         <div className={styles.logout}> 
-            <p className={classEmail}>{email}</p>
+            <p className={classEmail}>{user.email}</p>
             <Button text='Logout' type='button' onClick={onLogout} />
         </div>
     )

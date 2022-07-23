@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signupRequest, loginRequest, logoutRequest } from "../auth/auth-operations";
+import { signupRequest, loginRequest, logoutRequest, getCurrentRequest } from "../auth/auth-operations";
 import { pending, rejected } from "shared/services/utils/utils";
 
 const initialState = {
@@ -12,7 +12,6 @@ const initialState = {
 }
 
 const fulfilled = (store, { payload }) => {
-    console.log('fulfilled');
     store.loading = false;
     store.error = null;
     store.user = payload.user;
@@ -34,7 +33,11 @@ const authSlice = createSlice({
 
         [logoutRequest.pending]: pending,
         [loginRequest.rejected]: rejected,
-        [logoutRequest.fulfilled]: () => ({...initialState}),
+        [logoutRequest.fulfilled]: () => ({ ...initialState }),
+        
+        [getCurrentRequest.pending]: pending,
+        [getCurrentRequest.rejected]: rejected,
+        [getCurrentRequest.fulfilled]: (store, { payload }) => ({ ...store, loading: false, error: null, user: { ...payload }, isLogin: true, }),
     },
 })
 export default authSlice.reducer;

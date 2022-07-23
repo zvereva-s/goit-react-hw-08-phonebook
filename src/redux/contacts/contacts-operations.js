@@ -13,3 +13,4 @@ export const addContact = createOperation('contact/add', postContact, (contact, 
         return false;
     }
 });
+

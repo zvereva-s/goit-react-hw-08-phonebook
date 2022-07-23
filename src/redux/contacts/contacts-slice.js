@@ -36,9 +36,7 @@ const contactsSlice = createSlice({
 
     [removeContact.pending]: pending,
     [removeContact.fulfilled]: (store, { payload }) => ({
-      ...store,
-      loading: false,
-      items: [...store.items.filter(el => el.id !== payload)],
+      ...store, loading: false, error: null, items: store.items.filter(el => el.id !== payload)
     }),
     [removeContact.rejected]: rejected,
   },

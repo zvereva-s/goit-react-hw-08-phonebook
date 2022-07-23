@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+// import { NotificationManager } from "react-notifications";
 
-export const createOperation = (name, request, condition) => {
+export const createOperation = (name, request, condition, ) => {
     return createAsyncThunk(
         name,
         async (data, { rejectWithValue })=> {
         try {
             const response = await request(data);
-            console.log('response', response)
             return response;
          }
         catch (error) {

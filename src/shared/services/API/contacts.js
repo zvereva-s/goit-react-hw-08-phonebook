@@ -6,8 +6,8 @@ export async function postContact(contact) {
 }
 
 export async function deleteContact(id) {
-    const { data } = await instance.delete(`/contacts/${id}`);
-    return data.id;
+    await instance.delete(`/contacts/${id}`);
+    return id;
 }
 
 export async function fetchContactsList() {
