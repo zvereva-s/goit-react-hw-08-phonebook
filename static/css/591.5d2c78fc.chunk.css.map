@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/591.5d2c78fc.chunk.css","mappings":"AAAA,0BACI,qBAAsB,CAEtB,cAAe,CADf,eAAgB,CAGhB,iBAAkB,CAClB,wBACJ","sources":["pages/NotFoundPage/notFoundPage.module.css"],"sourcesContent":[".text{\n    font-family: Helvetica;\n    font-weight: 700;\n    font-size: 40px;\n\n    text-align: center;\n    text-transform: uppercase;\n}"],"names":[],"sourceRoot":""}
