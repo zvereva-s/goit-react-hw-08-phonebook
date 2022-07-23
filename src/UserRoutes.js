@@ -21,13 +21,13 @@ const UserRoutes = () => {
                 <Route element={<PublicRoute />}>
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
+                    <Route path='/goit-react-hw-08-phonebook' element={<RegisterPage />} />
                 </Route>
                 
                 <Route element={<PrivatesRoute />}>
                     <Route path="/contacts" element={<ContactsPage />} />
                 </Route>
                 
-                <Route path='/goit-react-hw-08-phonebook' element={<RegisterPage />} />
                 
                 <Route path='*' element={<NotFoundPage />}/>
             </Routes>
