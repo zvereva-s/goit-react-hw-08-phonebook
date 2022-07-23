@@ -1,0 +1,21 @@
+
+.item{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    
+}
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
+.number{
+        font-family: monospace;
+        font-weight: 500;
+        font-size: 14px;
+    
+        color: greenyellow;
+        background-color: rgba(0, 0, 0, 0.778);
+    
+        padding: 5px;
+        border-radius: 4px;
+}

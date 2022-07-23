@@ -1,0 +1,20 @@
+
+.button {
+    margin: 0 auto;
+    padding: 4px 0px;
+
+    width: 150px;
+
+    font-size: 14px;
+
+    color: lightslategray;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+}
+
+.button:hover {
+    background-color: greenyellow;
+    color: white;
+}

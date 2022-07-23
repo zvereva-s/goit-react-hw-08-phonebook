@@ -1,0 +1,16 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    /* justify-content: start; */
+}
+.slash{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.link{
+    color: rgba(0, 0, 0, 0.682);
+}
+.isActive{
+    color:greenyellow;
+    font-weight: 600;
+}

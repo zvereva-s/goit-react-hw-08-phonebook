@@ -1,0 +1,24 @@
+.wrapper {
+    display: block;
+    text-align: center;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.input {
+    width: 50%;
+    margin-top: 8px;
+    padding: 4px 0px;
+    padding-left: 4px;
+
+    font-size: 14px;
+
+    color: lightslategray;
+
+
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}

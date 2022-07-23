@@ -1,0 +1,11 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 40px;
+}
+.title{
+    text-align: center;
+}
+.contactsList {
+    width: 80%;
+}
