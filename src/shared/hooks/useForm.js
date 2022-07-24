@@ -1,4 +1,5 @@
-import {useState} from "react";
+import { useState } from "react";
+import PropTypes from 'prop-types';
     
 const useForm = ({onSubmit, initialState}) => {
     const [state, setState] = useState({...initialState});
@@ -27,3 +28,13 @@ const useForm = ({onSubmit, initialState}) => {
 }
 
 export default useForm;
+
+
+useForm.defaultProps = {
+    onSubmit: () => { },
+    initialState: {},
+}
+useForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    initialState: PropTypes.object.isRequired,
+}

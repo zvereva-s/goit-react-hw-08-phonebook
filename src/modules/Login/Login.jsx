@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { NotificationManager } from 'react-notifications';
 
 import useAuthState from 'shared/hooks/useAuthState';
 import { loginRequest } from 'redux/auth/auth-operations';
@@ -9,7 +8,7 @@ import Loader from 'shared/components/Loader';
 
 function Login() {
   const dispatch = useDispatch();
-  const { loading, error } = useAuthState();
+  const { loading} = useAuthState();
 
 
   function onLogin(data) {
@@ -19,7 +18,6 @@ function Login() {
   return (
     <>
       {loading && <Loader />}
-      {error && NotificationManager.error(`${error.message}`)}
       <LoginForm onSubmit={onLogin} />
     </>
   );
