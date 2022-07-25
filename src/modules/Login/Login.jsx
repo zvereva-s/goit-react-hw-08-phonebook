@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { NotificationManager } from 'react-notifications';
 
 import useAuthState from 'shared/hooks/useAuthState';
 import { loginRequest } from 'redux/auth/auth-operations';
@@ -19,6 +20,7 @@ function Login() {
     <>
       {loading && <Loader />}
       <LoginForm onSubmit={onLogin} />
+      {/* {error && <p>{error.message}</p>} */}
     </>
   );
 }
