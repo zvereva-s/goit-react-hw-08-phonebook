@@ -1,27 +1,40 @@
 import React from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { memo } from 'react';
+
 import PropTypes from 'prop-types';
+import { removeContact } from '../../../redux/contacts/contacts-operations';
+import { getRemoveLoading } from 'redux/contacts/contacts-selectors';
 
-import Button from 'shared/components/Button';
-import styles from './contactsList.module.css';
+import ContactListItem from './ContactListItem/ContactListItem';
 
-function ContactList({ items, onClick }) {
+
+function ContactList({ items}) {
+  const [selectedId, setSelectedId] = useState('');
+  const removeLoading = useSelector(getRemoveLoading);
+  const dispatch = useDispatch();
+  
+  const onRemoveContact = (id) => {
+    setSelectedId(id);
+    dispatch(removeContact(id));
+    }
+
+
   const elements = items.map(({ id, name, number }) => (
-    <li key={id} className={styles.item}>
-          {name}: <span className={styles.number}>{number}</span>
-    <Button text='Delete' type='button' onClick={() => onClick(id) } />
-    </li>
+    <ContactListItem key={id} name={name} number={number} onClick={() => onRemoveContact(id)} removeLoading={selectedId === id ? removeLoading : false} />
   ));
-  return <ul>{elements}</ul>;
+  return (
+
+    <ul>{elements}</ul>);
 }
 
 ContactList.defaultProps = {
   contacts: [],
-  onClick: () => {},
 };
 ContactList.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
+  isLoading: PropTypes.bool.isRequired,
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,

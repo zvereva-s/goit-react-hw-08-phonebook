@@ -19,7 +19,7 @@ export const createOperation = (name, request, condition, ) => {
 }
 
 export const pending = (store) => ({ ...store, loading: true, error: null });
-export const rejected = (store, { payload }) => ({ ...store, loading: false, error: payload });
+export const rejected = (store, { payload }) => ({ ...store, loading: false, error: payload, removeLoading: false });
 
 export const getErrorMessage = (error) => {
     const { response: { data: { message } } } = error;

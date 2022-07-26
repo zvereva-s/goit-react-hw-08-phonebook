@@ -12,13 +12,15 @@ import Loader from 'shared/components/Loader';
 function Register() {
 
   const dispatch = useDispatch();
-  let { loading} = useAuthState();
+  let { loading, error} = useAuthState();
   
 
   function onRegister(data) {
     dispatch(signupRequest(data));
   }
- 
+  
+  console.log('error register', error)
+
   return (
     <>
       {loading && <Loader />}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts} from 'redux/contacts/contacts-selectors';
-import {fetchContacts,addContact, removeContact } from 'redux/contacts/contacts-operations';
+import {fetchContacts,addContact } from 'redux/contacts/contacts-operations';
 
 import Filter from 'shared/components/Filter';
 import ContactsList from './ContactsList';
@@ -9,12 +9,12 @@ import ContactForm from 'shared/components/ContactForm';
 import Loader from '../../shared/components/Loader';
 
 import styles from './contacts.module.css';
+import { NotificationManager } from 'react-notifications';
 
 function Contacts() {
   const [filter, setFilter] = useState('');
   const contacts = useSelector(getContacts);
-  const {items, loading, error } = contacts;
-
+  const { items, loading, error } = contacts;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,9 +26,7 @@ function Contacts() {
         dispatch(addContact(data));
     }
   
-    const onRemoveContact = (id) => {
-        dispatch(removeContact(id));
-    }
+
   const onFilter = (e)=>{
       const { value } = e.target;
       setFilter(value);
@@ -52,8 +50,8 @@ function Contacts() {
         <h2 className={styles.title}>Contacts</h2>
         <Filter filter={onFilter} />
         {loading && <Loader />}
-        {error && <p>{error.message}</p>}
-        <ContactsList items={filteredItems} onClick={onRemoveContact} />
+        {error && NotificationManager.error(`${error.message}`)}
+        <ContactsList items={filteredItems}/>
       </div>
     </div>
   );

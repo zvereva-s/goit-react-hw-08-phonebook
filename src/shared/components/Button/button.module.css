@@ -1,20 +1,28 @@
-
 .button {
-    margin: 0 auto;
-    padding: 10px 0px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  padding-left: 10px;
 
-    width: 150px;
+  width: 150px;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    color: lightslategray;
+  color: lightslategray;
 
-    border: 1px solid transparent;
-    border-radius: 5px;
-
+  border: 1px solid transparent;
+  border-radius: 5px;
 }
 
 .button:hover {
-    background-color: greenyellow;
-    color: white;
+  background-color: greenyellow;
+  color: white;
+}
+
+.isDeleting{
+composes: button;
+}
+.isDeleting:hover{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
 }

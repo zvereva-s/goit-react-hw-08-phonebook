@@ -10,6 +10,8 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
+
+  removeLoading: false,
 };
 
 const contactsSlice = createSlice({
@@ -34,9 +36,9 @@ const contactsSlice = createSlice({
     }),
     [addContact.rejected]: rejected,
 
-    [removeContact.pending]: pending,
+    [removeContact.pending]: (store, {payload}) => ({...store, error:null, removeLoading: true}),
     [removeContact.fulfilled]: (store, { payload }) => ({
-      ...store, loading: false, error: null, items: store.items.filter(el => el.id !== payload)
+      ...store, removeLoading: false, error: null, items: store.items.filter(el => el.id !== payload)
     }),
     [removeContact.rejected]: rejected,
   },

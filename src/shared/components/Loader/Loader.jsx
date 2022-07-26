@@ -1,5 +1,4 @@
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { ThreeDots } from 'react-loader-spinner';
+import { ThreeDots } from  'react-loader-spinner'
 import styles from './loader.module.css';
 
 
