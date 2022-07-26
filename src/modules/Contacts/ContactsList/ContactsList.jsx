@@ -33,7 +33,7 @@ ContactList.defaultProps = {
   contacts: [],
 };
 ContactList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
